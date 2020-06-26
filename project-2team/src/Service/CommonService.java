@@ -9,10 +9,11 @@ import javafx.stage.Stage;
 
 public interface CommonService {
 	public void WindowClose(ActionEvent event);
-	public Parent showWindow(Stage s,String formPath);
+	public Parent showWindow(Stage s,String formPath, String imgPath);
 	public void errorMsg(String title, String header, String content);
 	public void errorMsg(String header, String content);
 	public void errorMsg(String content);
 	public Map<String, TextField> getTextFieldInfo(Parent root, String[] txtFldArr);
 	public boolean isEmpty(Map<String, TextField> txtFldMap, String[] txtFldArr, String[] list);
+	public int[] calender();
 }
