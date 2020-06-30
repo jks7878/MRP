@@ -1,0 +1,11 @@
+.main {
+	-fx-background-image: url("../img/main/background_main.jpg");
+}
+
+.login {
+	-fx-background-image: url("../img/login/background_login.jpg");
+}
+
+.join {
+	-fx-background-image: url("../img/join/background_join.jpg");
+}

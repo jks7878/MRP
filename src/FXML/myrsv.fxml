@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane blendMode="EXCLUSION" prefHeight="500.0" prefWidth="950.0" 
+xmlns="http://javafx.com/javafx/8" 
+xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="Main.MyRsvController">
+   <children>
+      <Label alignment="TOP_LEFT" layoutX="25.0" layoutY="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" text="현재 예약">
+         <font>
+            <Font name="Dotum" size="36.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <TableView fx:id="reservTable" cacheHint="QUALITY" depthTest="ENABLE" layoutX="25.0" layoutY="75.0" prefHeight="350.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="res_noColumn" style="-fx-alignment: CENTER;" text="예약 번호" />
+          <TableColumn fx:id="nameColumn" prefWidth="80.0" style="-fx-alignment: CENTER;" text="예약자 명" />
+          <TableColumn fx:id="exhibitColumn" prefWidth="200.0" style="-fx-alignment: CENTER;" text="전시회 명" />
+          <TableColumn fx:id="res_dateColumn" prefWidth="150.0" style="-fx-alignment: CENTER;" text="예약 날짜" />
+          <TableColumn fx:id="res_timeColumn" prefWidth="100.0" style="-fx-alignment: CENTER;" text="예약 시간" />
+          <TableColumn fx:id="ticket_selColumn" prefWidth="120.0" style="-fx-alignment: CENTER;" text="구분" />
+          <TableColumn fx:id="ticketColumn" prefWidth="70.0" style="-fx-alignment: CENTER;" text="매수" />
+          <TableColumn fx:id="priceColumn" prefWidth="100.0" style="-fx-alignment: CENTER;" text="금액" />
+        </columns>
+      </TableView>
+      <Button fx:id="changeRsvBtn" onAction="#changeRsv" layoutX="25.0" layoutY="435.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 변경" />
+      <Button fx:id="cancelRsvBtn" onAction="#cancelRsv" layoutX="143.0" layoutY="435.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 취소" />
+      <Button fx:id="openLastMyrsvBtn" onAction="#openLastRsvForm" layoutX="825.0" layoutY="435.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="지난 예약" />
+   </children>
+</AnchorPane>

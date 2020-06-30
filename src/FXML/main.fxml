@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="1200.0" styleClass="main" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
+   <children>
+      <ImageView fx:id="btnLogin" fitHeight="32.0" fitWidth="83.0" layoutX="1087.0" layoutY="30.0" onMouseClicked="#loginForm" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/main/btn_login.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnMyrsv" fitHeight="16.0" fitWidth="64.0" layoutX="1006.0" layoutY="38.0" onMouseClicked="#myRsvForm" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/main/btn_myrsv.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="today" layoutX="1031.0" layoutY="130.0" stylesheets="@../css/main.css" text="2020.06.26" textAlignment="RIGHT" textFill="WHITE" />
+      <ImageView fx:id="exhibition1" fitHeight="480.0" fitWidth="340.0" layoutX="71.0" layoutY="246.0" nodeOrientation="INHERIT" onMouseClicked="#exhibitionForm" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/main/exhibition_1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exhibition2" fitHeight="480.0" fitWidth="340.0" layoutX="430.0" layoutY="246.0" onMouseClicked="#exhibitionForm" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/main/exhibition_2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exhibition3" fitHeight="480.0" fitWidth="340.0" layoutX="785.0" layoutY="246.0" onMouseClicked="#exhibitionForm" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/main/exhibition_3.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="title1" layoutX="78.0" layoutY="737.0" prefWidth="240.0" text="My Dear 피노키오 展" textFill="WHITE" wrapText="true" />
+      <Label fx:id="title2" layoutX="435.0" layoutY="737.0" prefWidth="240.0" text="퀘이 형제 :도미토리움으로의 초대展" textFill="WHITE" wrapText="true" />
+      <Label fx:id="title3" layoutX="790.0" layoutY="737.0" prefWidth="240.0" text="퓰리처상 사진전" textFill="WHITE" wrapText="true" />
+      <Pane layoutX="338.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+         <children>
+            <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="진행중" textAlignment="CENTER" textFill="#ff4b4b" />
+         </children>
+      </Pane>
+      <Pane layoutX="696.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+         <children>
+            <Label fx:id="day2" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 1" textAlignment="CENTER" textFill="#ff4b4b" />
+         </children>
+      </Pane>
+      <Pane layoutX="1050.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+         <children>
+            <Label fx:id="day3" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 5" textAlignment="CENTER" textFill="#ff4b4b" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
