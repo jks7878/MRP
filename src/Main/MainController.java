@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MainController extends Controller implements Initializable{	
@@ -69,8 +70,8 @@ public class MainController extends Controller implements Initializable{
 	    });
 	}
 
-	public void exhibitionForm() {
-		Parent root = mainSrv.exhibitionForm();
+	public void exhibitionForm(MouseEvent e) {
+		mainSrv.selExhibition(e);
 	}
 	
 	public void myRsvForm() {

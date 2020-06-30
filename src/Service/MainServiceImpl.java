@@ -6,6 +6,8 @@ import java.util.List;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -86,11 +88,20 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public Parent exhibitionForm() {
-		CommonService comSrv=new CommonServiceImpl();
-		Stage exForm=new Stage();
-		Parent form=comSrv.showWindow(exForm, "../FXML/exhibition.fxml");
-		return form;
+	public void selExhibition(MouseEvent e) {
+		ImageView ex=(ImageView)e.getSource();
+		String id=ex.getId();
+		String exTitle="";
+		if(id.equals("exhibition1")) {
+			exTitle="pino";
+		}else if(id.equals("exhibition2")) {
+			exTitle="brother";
+		}else if(id.equals("exhibition3")) {
+			exTitle="photo";
+		}
+		
+		ExhibitionService exSrv=new ExhibitionServiceImpl();
+		exSrv.exhibitionForm(exTitle);
 	}
 
 	@Override
