@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="@test.css" styleClass="toggle-container">
+       <children>
+           <ToggleButton style="-fx-original-background: #ffe9e9;" />
+           <ToggleButton style="-fx-original-background: red;" />
+           <ToggleButton style="-fx-original-background: yellow;" />
+       </children>
+</VBox>
