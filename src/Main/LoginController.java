@@ -32,6 +32,7 @@ public class LoginController extends Controller implements Initializable{
 		joinSrv = new JoinServiceImpl();
 	}
 	
+	//로그인버튼
 	public void loginProc() {
 		String txtFldArr[] = {"#txtId","#txtPw"};
 		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(root,txtFldArr);
@@ -41,10 +42,12 @@ public class LoginController extends Controller implements Initializable{
 		loginSrv.loginProc(root);
 	}
 	
+	//취소버튼
 	public void cancelProc(ActionEvent e) {
 		comSrv.closeWindow(e);
 	}
 	
+	//회원가입버튼 > 회원가입창
 	public void joinForm() {	
 		Parent root = loginSrv.joinForm();
 		joinSrv.setFont(root);

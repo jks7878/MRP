@@ -9,3 +9,14 @@
 .join {
 	-fx-background-image: url("../img/join/background_join.jpg");
 }
+
+.rsv>ToggleButton {
+	-fx-background-color: #ffe9e9;
+	-fx-border-color: #ffa5a5;
+	-fx-font-color: #000000;
+}
+
+.rsv>ToggleButton:selected {
+	-fx-background-color: #ff4b4b;
+	-fx-font-color: #ffffff;
+}

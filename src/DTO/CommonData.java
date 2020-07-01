@@ -1,7 +1,7 @@
 package DTO;
 
 public class CommonData {
-	private static String loginedId = "test";
+	private static String loginedId = null;
 	private static String today = null;
 	
 	public String getLoginedId() {

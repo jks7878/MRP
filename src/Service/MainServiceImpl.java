@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import DTO.CommonData;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -16,8 +17,8 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public void setFont(Parent root) {
 		Font font1=Font.loadFont(getClass().getResourceAsStream("../font/FuturaPTLight.otf"), 20);
-		Font font2=Font.loadFont(getClass().getResourceAsStream("../font/AppleSDGothicNeoSB.ttf"), 16);
-		Font font3=Font.loadFont(getClass().getResourceAsStream("../font/AppleSDGothicNeoB.ttf"), 20);
+		Font font2=Font.loadFont(getClass().getResourceAsStream("../font/나눔고딕Bold.ttf"), 16);
+		Font font3=Font.loadFont(getClass().getResourceAsStream("../font/나눔고딕ExtraBold.ttf"), 20);
 		Label today=(Label)root.lookup("#today");
 		Label day1=(Label)root.lookup("#day1");
 		Label day2=(Label)root.lookup("#day2");
@@ -37,11 +38,21 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public void setToday(Parent root) {
 		Label today=(Label)root.lookup("#today");
+//		CommonData cmd=new CommonData();
+//		cmd.setToday(today.getText());
 		Calendar td=Calendar.getInstance();
 		if(td.get(Calendar.MONTH)+1<10) {
-			today.setText(td.get(Calendar.YEAR)+".0"+(td.get(Calendar.MONTH)+1)+"."+td.get(Calendar.DAY_OF_MONTH));
+			if(td.get(Calendar.DATE)<10) {
+				today.setText(td.get(Calendar.YEAR)+".0"+(td.get(Calendar.MONTH)+1)+".0"+td.get(Calendar.DAY_OF_MONTH));
+			}else {
+				today.setText(td.get(Calendar.YEAR)+".0"+(td.get(Calendar.MONTH)+1)+"."+td.get(Calendar.DAY_OF_MONTH));
+			}
 		}else {
-			today.setText(td.get(Calendar.YEAR)+"."+(td.get(Calendar.MONTH)+1)+"."+td.get(Calendar.DAY_OF_MONTH));
+			if(td.get(Calendar.DAY_OF_MONTH)<10) {
+				today.setText(td.get(Calendar.YEAR)+"."+(td.get(Calendar.MONTH)+1)+".0"+td.get(Calendar.DAY_OF_MONTH));
+			}else {
+				today.setText(td.get(Calendar.YEAR)+"."+(td.get(Calendar.MONTH)+1)+"."+td.get(Calendar.DAY_OF_MONTH));
+			}
 		}
 	}
 
@@ -86,7 +97,8 @@ public class MainServiceImpl implements MainService{
 		Parent form = comSrv.showWindow(loginForm, "../FXML/login.fxml");
 		return form;
 	}
-
+	
+	//선택한 전시정보
 	@Override
 	public void selExhibition(MouseEvent e) {
 		ImageView ex=(ImageView)e.getSource();
@@ -103,7 +115,8 @@ public class MainServiceImpl implements MainService{
 		ExhibitionService exSrv=new ExhibitionServiceImpl();
 		exSrv.exhibitionForm(exTitle);
 	}
-
+	
+	//예약내역
 	@Override
 	public Parent myRsvForm() {
 		CommonService comSrv = new CommonServiceImpl();

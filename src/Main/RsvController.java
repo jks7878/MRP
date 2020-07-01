@@ -3,6 +3,7 @@ package Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import DTO.Reservation;
 import Service.CommonService;
 import Service.CommonServiceImpl;
 import Service.RsvService;
@@ -19,6 +20,8 @@ public class RsvController implements Initializable {
 	
 	static Parent rsvParent;
 	static String exTitle="";
+	static String exDate="";
+	static String exTime="";
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -40,7 +43,23 @@ public class RsvController implements Initializable {
 
 	public static void setExTitle(String exTitle) {
 		RsvController.exTitle = exTitle;
-	}	
+	}
+
+	public static String getExDate() {
+		return exDate;
+	}
+
+	public static void setExDate(String exDate) {
+		RsvController.exDate = exDate;
+	}
+
+	public static String getExTime() {
+		return exTime;
+	}
+
+	public static void setExTime(String exTime) {
+		RsvController.exTime = exTime;
+	}
 
 	public Parent getRsvForm() {
 		return rsvForm;
@@ -57,16 +76,32 @@ public class RsvController implements Initializable {
 	
 	//예매 초기세팅
 	public void rsvFormSet() {
-//		rsvSrv.rsvFormSet(rsvForm);
+		rsvSrv.rsvFormSet(rsvForm);
 	}
 	
 	//이전 달
+	public void calBeforeBtn() {
+		rsvSrv.calBeforeBtn(rsvForm);
+	}
 	
 	//다음 달
+	public void calAfterBtn() {
+		rsvSrv.calAfterBtn(rsvForm);
+	}
 	
 	//날짜 선택 버튼(토글버튼)
+	public void selDate(ActionEvent e) {
+		rsvSrv.selDate(e);
+	}
 	
 	//시간 선택 버튼(토글 버튼)
+	public void selTime(ActionEvent e) {
+		rsvSrv.selTime(rsvForm, e);
+	}
 	
 	//누락값 확인
+	public void isSelected() {
+		rsvSrv.isSelected(rsvForm);
+	}
+	
 }

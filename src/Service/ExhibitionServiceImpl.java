@@ -35,12 +35,12 @@ public class ExhibitionServiceImpl implements ExhibitionService {
       exCtrl.setExTitle(exTitle);
       
       exImg=(ImageView)root.lookup("#exhibition");
-      exImg.setImage(new Image(getClass().getResourceAsStream("../img/exhibition/"+exTitle+".jpg")));
+      exImg.setImage(new Image(getClass().getResourceAsStream("../img/exhibition/"+exTitle+"_info.jpg")));
       
       btnRsv=(Button)root.lookup("#btnRsv");
-      btnRsv.setFont(Font.loadFont(getClass().getResourceAsStream("../font/AppleSDGothicNeoB.ttf"), 24));
+      btnRsv.setFont(Font.loadFont(getClass().getResourceAsStream("../font/나눔고딕Bold.ttf"), 20));
       
-      exStage.setTitle("전시정보");
+      exStage.setTitle("전시 정보");
       exStage.setScene(scene);
       exStage.show();
    }

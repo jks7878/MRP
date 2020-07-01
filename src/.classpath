@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="D:/Eclipse/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/siddl/Desktop/HK/Util/ojdbc6.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

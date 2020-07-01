@@ -37,20 +37,20 @@
             <Image url="@../img/main/exhibition_3.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="title1" layoutX="78.0" layoutY="737.0" prefWidth="240.0" text="My Dear 피노키오 展" textFill="WHITE" wrapText="true" />
-      <Label fx:id="title2" layoutX="435.0" layoutY="737.0" prefWidth="240.0" text="퀘이 형제 :도미토리움으로의 초대展" textFill="WHITE" wrapText="true" />
+      <Label fx:id="title1" layoutX="78.0" layoutY="737.0" prefWidth="240.0" text="My Dear 피노키오 전" textFill="WHITE" wrapText="true" />
+      <Label fx:id="title2" layoutX="435.0" layoutY="737.0" prefWidth="240.0" text="퀘이 형제 : 도미토리움으로의 초대전" textFill="WHITE" wrapText="true" />
       <Label fx:id="title3" layoutX="790.0" layoutY="737.0" prefWidth="240.0" text="퓰리처상 사진전" textFill="WHITE" wrapText="true" />
-      <Pane layoutX="338.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+      <Pane layoutX="338.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
             <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="진행중" textAlignment="CENTER" textFill="#ff4b4b" />
          </children>
       </Pane>
-      <Pane layoutX="696.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+      <Pane layoutX="696.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
             <Label fx:id="day2" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 1" textAlignment="CENTER" textFill="#ff4b4b" />
          </children>
       </Pane>
-      <Pane layoutX="1050.0" layoutY="740.0" prefHeight="28.0" prefWidth="69.0">
+      <Pane layoutX="1050.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
             <Label fx:id="day3" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 5" textAlignment="CENTER" textFill="#ff4b4b" />
          </children>

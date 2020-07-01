@@ -36,8 +36,6 @@ public class MainController extends Controller implements Initializable{
 		mainSrv.setFont(root);
 		mainSrv.setToday(root);
 		mainSrv.setDday(root);
-		Label tmp = (Label)root.lookup("#today");
-		cmd.setToday(tmp.getText());
 	}
 
 	@Override
@@ -54,26 +52,15 @@ public class MainController extends Controller implements Initializable{
 			System.out.println("로그인 중인 사용자가 있습니다");
 			return;
 		}
-		Parent root = mainSrv.loginForm();	
-		TextField txtId = (TextField)root.lookup("#txtId");
-		Button login = (Button)root.lookup("#btnLogin");
-		loginSrv.setFont(root);
-		login.setOnAction(e -> {
-			if(loginSrv.loginProc(root)) {
-				cmd.setLoginedId(txtId.getText());	
-				System.out.println("현재 로그인 중인 계정 : " + cmd.getLoginedId());
-				Stage s = (Stage) root.getScene().getWindow();
-				s.close();
-			}else {
-				System.out.println("현재 로그인 중인 계정 : " + cmd.getLoginedId());
-			}
-	    });
+		Parent root = mainSrv.loginForm();
 	}
-
+	
+	//선택한 전시정보
 	public void exhibitionForm(MouseEvent e) {
 		mainSrv.selExhibition(e);
 	}
 	
+	//예약내역
 	public void myRsvForm() {
 		if(cmd.getLoginedId() == null) {
 			if(comSrv.selectErrMsg("로그인 후에 이용하실 수 있습니다\n로그인 하시겠습니까?")) {
@@ -84,6 +71,7 @@ public class MainController extends Controller implements Initializable{
 		}		
 	}
 	
+	//종료
 	public void endProc(ActionEvent event) {
 		if(comSrv.selectErrMsg("종료하시겠습니까?")) {
 			Platform.exit();

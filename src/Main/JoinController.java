@@ -25,6 +25,8 @@ public class JoinController extends Controller implements Initializable{
 	private CommonService comSrv;
 	private JoinService joinSrv;
 	
+	boolean b;
+	
 	public void setRoot(Parent root) {
 		this.root = root;
 	}
@@ -35,6 +37,7 @@ public class JoinController extends Controller implements Initializable{
 		joinSrv = new JoinServiceImpl();
 	}
 	
+	//취소버튼
 	public void CancelProc(ActionEvent e) {
 		if(((CommonServiceImpl) comSrv).selectErrMsg("페이지에서 나갈 경우 입력된 데이터가 사라집니다 나가시겠습니까?")) {
 			comSrv.closeWindow(e);
@@ -43,11 +46,18 @@ public class JoinController extends Controller implements Initializable{
 		}		
 	}
 	
+	//아이디 중복확인
+	public void compareID(ActionEvent e) {
+		b=joinSrv.compareID(root);
+	}
+	
+	//입력누락 확인
 	private boolean isCheck(Map<String,TextField> txtFldMap, String[] txtFldArr) {
 		if(comSrv.isEmpty(txtFldMap, txtFldArr)) {
 			return false;
 		}
-		if(!joinSrv.compareID(root)) {
+		if(!b) {
+			comSrv.errorMsg("아이디 중복확인을 해주세요");
 			return false;
 		}
 		if(!joinSrv.comparePW(txtFldMap,txtFldArr)) {
@@ -56,6 +66,7 @@ public class JoinController extends Controller implements Initializable{
 		return true;
 	}
 	
+	//회원가입버튼
 	public void joinProc() throws SQLException {
 		String []txtFldArr = {"#txtId","#txtPw","#txtCpw","#txtName","#txtTel","#txtEmail"};
 		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(root, txtFldArr);
