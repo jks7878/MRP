@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class CommonServiceImpl implements CommonService{
@@ -52,6 +53,16 @@ public class CommonServiceImpl implements CommonService{
 			txtFldMap.put(txtFldId, txtFld);
 		}
 		return txtFldMap;
+	}
+	
+	@Override
+	public Map<String, Label> getLabelInfo(Parent root, String[] lblFldArr) {
+		Map<String, Label> lblFldMap = new HashMap<String, Label>();
+		for(String lblFldId : lblFldArr) {
+			Label lblFld = (Label)root.lookup(lblFldId);
+			lblFldMap.put(lblFldId, lblFld);
+		}
+		return lblFldMap;
 	}
 
 	@Override

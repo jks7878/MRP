@@ -1,0 +1,23 @@
+- 회원가입
+create table member (
+	id varchar2(20) primary key not null,
+	pw varchar2(20) not null,
+	name varchar2(20) not null,
+	tel varchar2(100) not null,
+	email varchar2(100) not null
+);
+
+- 예매정보
+create table reservation (
+	res_no number,
+	res_id varchar2(20) not null,
+	name varchar2(20) not null,
+	title varchar2(100) not null,
+	res_date varchar2(20) not null,
+	res_time varchar2(20) not null,
+	ticket integer not null,
+	ticket_sel varchar2(100) not null,
+	price integer not null
+);
+
+create sequence res_no_seq increment by 1 start with 1;

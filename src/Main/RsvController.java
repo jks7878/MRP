@@ -3,7 +3,6 @@ package Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import DTO.Reservation;
 import Service.CommonService;
 import Service.CommonServiceImpl;
 import Service.RsvService;
@@ -11,6 +10,7 @@ import Service.RsvServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ToggleButton;
 
 public class RsvController implements Initializable {
 	
@@ -19,9 +19,6 @@ public class RsvController implements Initializable {
 	private RsvService rsvSrv;
 	
 	static Parent rsvParent;
-	static String exTitle="";
-	static String exDate="";
-	static String exTime="";
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -37,30 +34,6 @@ public class RsvController implements Initializable {
 		RsvController.rsvParent = rsvParent;
 	}
 
-	public static String getExTitle() {
-		return exTitle;
-	}
-
-	public static void setExTitle(String exTitle) {
-		RsvController.exTitle = exTitle;
-	}
-
-	public static String getExDate() {
-		return exDate;
-	}
-
-	public static void setExDate(String exDate) {
-		RsvController.exDate = exDate;
-	}
-
-	public static String getExTime() {
-		return exTime;
-	}
-
-	public static void setExTime(String exTime) {
-		RsvController.exTime = exTime;
-	}
-
 	public Parent getRsvForm() {
 		return rsvForm;
 	}
@@ -74,24 +47,19 @@ public class RsvController implements Initializable {
 		comSrv.closeWindow(e);
 	}
 	
-	//예매 초기세팅
-	public void rsvFormSet() {
-		rsvSrv.rsvFormSet(rsvForm);
-	}
-	
 	//이전 달
-	public void calBeforeBtn() {
-		rsvSrv.calBeforeBtn(rsvForm);
+	public void calPrevBtn() {
+		rsvSrv.calPrevBtn(getRsvParent());
 	}
 	
 	//다음 달
-	public void calAfterBtn() {
-		rsvSrv.calAfterBtn(rsvForm);
+	public void calNextBtn() {
+		rsvSrv.calNextBtn(getRsvParent());
 	}
 	
 	//날짜 선택 버튼(토글버튼)
 	public void selDate(ActionEvent e) {
-		rsvSrv.selDate(e);
+		rsvSrv.selDate(rsvForm, e);
 	}
 	
 	//시간 선택 버튼(토글 버튼)
@@ -100,8 +68,11 @@ public class RsvController implements Initializable {
 	}
 	
 	//누락값 확인
-	public void isSelected() {
-		rsvSrv.isSelected(rsvForm);
+	public void rsvNext(ActionEvent e) {
+		if(!rsvSrv.isSelected(rsvForm)) {
+			return;
+		}
+		rsvSrv.rsvNext(e);
 	}
 	
 }

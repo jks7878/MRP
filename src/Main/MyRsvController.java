@@ -11,10 +11,10 @@ import Service.MyRsvService;
 import Service.MyRsvServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -65,20 +65,17 @@ public class MyRsvController extends Controller implements Initializable {
 				selectedRsv = reservTable.getSelectionModel().getSelectedItem().getRes_no().getValue().intValue();
 			}
 		});
-		
 	}
-	
-	public void changeRsv() {
-		myRsvSrv.changeRsv(selectedRsv);
+
+	public void changeRsv(ActionEvent e) {
+		if(myRsvSrv.changeRsv(selectedRsv)) {
+			comSrv.closeWindow(e);
+		}
 	}
 	
 	public void cancelRsv() {
 		myRsvSrv.cancleRsv(selectedRsv);
 		list = myRsvSrv.listMyReservation(cmd.getLoginedId());
 		reservTable.setItems(list);
-	}
-	
-	public void openLastRsvForm() {
-		
 	}
 }

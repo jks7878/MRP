@@ -1,10 +1,10 @@
 package DTO;
 
 public class Reservation {
-	private int res_no;
+	private int res_no; //예약번호
 	private String res_id; // 예약자 ID
 	private String name; // 예약자 이름
-	private String exhibit; // 전시회 이름
+	private String title; // 전시회 이름
 	private String res_date; // 예약 날짜, 시작 일
 	private String res_time; // 예약 시간대
 	private int ticket; // 티켓 매수
@@ -29,11 +29,11 @@ public class Reservation {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getExhibit() {
-		return exhibit;
+	public String getTitle() {
+		return title;
 	}
-	public void setExhibit(String exhibit) {
-		this.exhibit = exhibit;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getRes_date() {
 		return res_date;

@@ -15,16 +15,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 
-public class LoginController extends Controller implements Initializable{
-	private Parent root;
+public class LoginController implements Initializable{
+	
+	private Parent loginForm;
 	private LoginService loginSrv;
 	private CommonService comSrv;
 	private JoinService joinSrv;
 	
-	public void setRoot(Parent root) {
-		this.root = root;
-	}
-
+	static Parent loginParent;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loginSrv = new LoginServiceImpl();
@@ -32,14 +31,30 @@ public class LoginController extends Controller implements Initializable{
 		joinSrv = new JoinServiceImpl();
 	}
 	
+	public static Parent getLoginParent() {
+		return loginParent;
+	}
+
+	public static void setLoginParent(Parent loginParent) {
+		LoginController.loginParent = loginParent;
+	}
+
+	public Parent getLoginForm() {
+		return loginForm;
+	}
+
+	public void setLoginForm(Parent loginForm) {
+		this.loginForm = loginForm;
+	}
+
 	//로그인버튼
-	public void loginProc() {
+	public void loginProc(ActionEvent e) {
 		String txtFldArr[] = {"#txtId","#txtPw"};
-		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(root,txtFldArr);
+		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(loginForm,txtFldArr);
 		if(comSrv.isEmpty(txtFldMap, txtFldArr)) {
 			return;
 		}
-		loginSrv.loginProc(root);
+		loginSrv.loginProc(loginForm, e);
 	}
 	
 	//취소버튼
@@ -49,8 +64,7 @@ public class LoginController extends Controller implements Initializable{
 	
 	//회원가입버튼 > 회원가입창
 	public void joinForm() {	
-		Parent root = loginSrv.joinForm();
-		joinSrv.setFont(root);
+		joinSrv.joinForm();
 	}
 }
 

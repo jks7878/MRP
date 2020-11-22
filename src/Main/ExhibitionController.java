@@ -1,16 +1,15 @@
 package Main;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import DTO.Exhibition;
+import DTO.CommonData;
 import Service.CommonService;
 import Service.CommonServiceImpl;
 import Service.ExhibitionService;
 import Service.ExhibitionServiceImpl;
-import Service.RsvService;
-import Service.RsvServiceImpl;
+import Service.LoginService;
+import Service.LoginServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -22,7 +21,6 @@ public class ExhibitionController implements Initializable {
 	private ExhibitionService exSrv;
 	
 	static Parent exParent;
-	static String exTitle="";
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -36,14 +34,6 @@ public class ExhibitionController implements Initializable {
 
 	public static void setexParent(Parent exParent) {
 		ExhibitionController.exParent = exParent;
-	}
-
-	public static String getExTitle() {
-		return exTitle;
-	}
-
-	public static void setExTitle(String exTitle) {
-		ExhibitionController.exTitle = exTitle;
 	}
 
 	public void setRsvForm(Parent exForm) {
@@ -61,7 +51,16 @@ public class ExhibitionController implements Initializable {
 	
 	//예매버튼
 	public void rsvForm(ActionEvent e) {
-		exSrv.openRsvForm(e);
+		CommonData cmd=new CommonData();
+		LoginService loginSrv=new LoginServiceImpl();
+		if(cmd.getLoginedId()==null) {
+			if(comSrv.selectErrMsg("로그인 후에 이용하실 수 있습니다\n로그인 하시겠습니까?")) {
+				loginSrv.loginForm();
+			}
+		}else {
+			exSrv.openRsvForm(e);
+			comSrv.closeWindow(e);
+		}
 	}
 
 }

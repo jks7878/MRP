@@ -21,7 +21,7 @@
             <Image url="@../img/main/btn_myrsv.png" />
          </image>
       </ImageView>
-      <Label fx:id="today" layoutX="1031.0" layoutY="130.0" stylesheets="@../css/main.css" text="2020.06.26" textAlignment="RIGHT" textFill="WHITE" />
+      <Label fx:id="today" onMouseClicked="#modToday" layoutX="1031.0" layoutY="130.0" stylesheets="@../css/main.css" text="2020.06.26" textAlignment="RIGHT" textFill="WHITE" />
       <ImageView fx:id="exhibition1" fitHeight="480.0" fitWidth="340.0" layoutX="71.0" layoutY="246.0" nodeOrientation="INHERIT" onMouseClicked="#exhibitionForm" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/main/exhibition_1.jpg" />
@@ -42,18 +42,20 @@
       <Label fx:id="title3" layoutX="790.0" layoutY="737.0" prefWidth="240.0" text="퓰리처상 사진전" textFill="WHITE" wrapText="true" />
       <Pane layoutX="338.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
-            <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="진행중" textAlignment="CENTER" textFill="#ff4b4b" />
+            <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="진행중" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="696.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
-            <Label fx:id="day2" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 1" textAlignment="CENTER" textFill="#ff4b4b" />
+            <Label fx:id="day2" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 1" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="1050.0" layoutY="741.0" prefHeight="28.0" prefWidth="69.0">
          <children>
-            <Label fx:id="day3" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 5" textAlignment="CENTER" textFill="#ff4b4b" />
+            <Label fx:id="day3" alignment="CENTER" contentDisplay="CENTER" prefWidth="69.0" text="D - 5" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </Pane>
+      <Label fx:id="lblId" alignment="CENTER_RIGHT" layoutX="790.0" layoutY="35.0" prefWidth="200.0" textFill="WHITE" underline="true" />
+   	  <DatePicker fx:id="minical" layoutX="976.0" layoutY="125.0" prefHeight="29.0" prefWidth="155.0" visible="false" />
    </children>
 </AnchorPane>

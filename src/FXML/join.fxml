@@ -32,30 +32,6 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtName" layoutX="60.0" layoutY="432.0" prefHeight="30.0" prefWidth="280.0">
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtTel" layoutX="60.0" layoutY="502.0" prefHeight="30.0" prefWidth="280.0" promptText="'-' 생략">
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEmail" layoutX="60.0" layoutY="572.0" prefHeight="30.0" prefWidth="280.0">
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <PasswordField fx:id="txtPw" layoutX="60.0" layoutY="292.0" prefHeight="30.0" prefWidth="280.0" promptText="최소 8자리">
          <padding>
             <Insets left="10.0" right="10.0" />
@@ -72,6 +48,30 @@
             <Font size="14.0" />
          </font>
       </PasswordField>
+      <TextField fx:id="txtName" layoutX="60.0" layoutY="432.0" prefHeight="30.0" prefWidth="280.0">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtTel" layoutX="60.0" layoutY="502.0" prefHeight="30.0" prefWidth="280.0" promptText="'-' 포함">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="60.0" layoutY="572.0" prefHeight="30.0" prefWidth="280.0">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
       <Button fx:id="btnJoin" layoutX="60.0" layoutY="640.0" mnemonicParsing="false" onAction="#joinProc" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #909090;" text="가입하기" textFill="WHITE" />
       <Button fx:id="btnId" layoutX="260.0" layoutY="222.0" mnemonicParsing="false" onAction="#compareID" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #909090;" text="중복확인" textFill="WHITE" />
    </children>

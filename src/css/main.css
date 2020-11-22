@@ -10,13 +10,23 @@
 	-fx-background-image: url("../img/join/background_join.jpg");
 }
 
-.rsv>ToggleButton {
-	-fx-background-color: #ffe9e9;
-	-fx-border-color: #ffa5a5;
-	-fx-font-color: #000000;
+.time>ToggleButton {
+       -fx-background-color: -fx-original-background;
+       -fx-border-color: #ffa5a5;
+       -fx-text-fill: #000000;
 }
 
-.rsv>ToggleButton:selected {
-	-fx-background-color: #ff4b4b;
-	-fx-font-color: #ffffff;
+.time>ToggleButton:selected {
+       -fx-background-color: #ff4b4b;
+       -fx-text-fill: #ffffff;
+}
+
+.date>ToggleButton {
+       -fx-background-color: -fx-original-background;
+       -fx-text-fill: #000000;
+}
+
+.date>ToggleButton:selected {
+       -fx-background-color: #ff4b4b;
+       -fx-text-fill: #ffffff;
 }

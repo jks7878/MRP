@@ -1,14 +1,10 @@
 package DTO;
 
-import java.util.ArrayList;
-
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-
-
 public class TableRowDataModel {
-	private SimpleIntegerProperty res_no;
+	private SimpleIntegerProperty res_no; // 예약 번호
 	private SimpleStringProperty res_id; // 예약자 ID
 	private SimpleStringProperty name; // 예약자 이름
 	private SimpleStringProperty exhibit; // 전시회 이름
@@ -17,9 +13,8 @@ public class TableRowDataModel {
 	private SimpleIntegerProperty ticket; // 티켓 매수
 	private SimpleStringProperty ticket_sel; // 티켓 구분
 	private SimpleIntegerProperty price; // 총 가격
-	
-	public TableRowDataModel(int res_no, String res_id, String name,
-			String exhibit, String res_date, String res_time,
+
+	public TableRowDataModel(int res_no, String res_id, String name, String exhibit, String res_date, String res_time,
 			int ticket, String ticket_sel, int price) {
 		this.res_no = new SimpleIntegerProperty(res_no);
 		this.res_id = new SimpleStringProperty(res_id);
@@ -29,7 +24,7 @@ public class TableRowDataModel {
 		this.res_time = new SimpleStringProperty(res_time);
 		this.ticket = new SimpleIntegerProperty(ticket);
 		this.ticket_sel = new SimpleStringProperty(ticket_sel);
-		this.price = new SimpleIntegerProperty(price);		
+		this.price = new SimpleIntegerProperty(price);
 	}
 
 	public SimpleIntegerProperty getRes_no() {

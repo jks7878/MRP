@@ -16,20 +16,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 
-public class JoinController extends Controller implements Initializable{
+public class JoinController implements Initializable{
 	
-	private Parent root;
+	private Parent joinForm;
 	private CommonService comSrv;
 	private JoinService joinSrv;
 	
-	boolean b;
+	static Parent joinParent; //회원가입폼
+	static String joinId; //회원가입한 아이디
 	
-	public void setRoot(Parent root) {
-		this.root = root;
-	}
+	boolean b;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {	
@@ -37,6 +35,30 @@ public class JoinController extends Controller implements Initializable{
 		joinSrv = new JoinServiceImpl();
 	}
 	
+	public static Parent getJoinParent() {
+		return joinParent;
+	}
+
+	public static void setJoinParent(Parent joinParent) {
+		JoinController.joinParent = joinParent;
+	}
+
+	public static String getJoinId() {
+		return joinId;
+	}
+
+	public static void setJoinId(String joinId) {
+		JoinController.joinId = joinId;
+	}
+
+	public Parent getJoinForm() {
+		return joinForm;
+	}
+
+	public void setJoinForm(Parent joinForm) {
+		this.joinForm = joinForm;
+	}
+
 	//취소버튼
 	public void CancelProc(ActionEvent e) {
 		if(((CommonServiceImpl) comSrv).selectErrMsg("페이지에서 나갈 경우 입력된 데이터가 사라집니다 나가시겠습니까?")) {
@@ -46,9 +68,9 @@ public class JoinController extends Controller implements Initializable{
 		}		
 	}
 	
-	//아이디 중복확인
+	//아이디 중복확인 버튼
 	public void compareID(ActionEvent e) {
-		b=joinSrv.compareID(root);
+		b=joinSrv.compareID(getJoinParent());
 	}
 	
 	//입력누락 확인
@@ -60,6 +82,9 @@ public class JoinController extends Controller implements Initializable{
 			comSrv.errorMsg("아이디 중복확인을 해주세요");
 			return false;
 		}
+		if(!joinSrv.lengthCheck(getJoinParent())){
+	         return false;
+	    }
 		if(!joinSrv.comparePW(txtFldMap,txtFldArr)) {
 			return false;
 		}
@@ -67,9 +92,9 @@ public class JoinController extends Controller implements Initializable{
 	}
 	
 	//회원가입버튼
-	public void joinProc() throws SQLException {
+	public void joinProc(ActionEvent e) throws SQLException {
 		String []txtFldArr = {"#txtId","#txtPw","#txtCpw","#txtName","#txtTel","#txtEmail"};
-		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(root, txtFldArr);
+		Map<String, TextField> txtFldMap = comSrv.getTextFieldInfo(getJoinParent(), txtFldArr);
 		if(!isCheck(txtFldMap, txtFldArr)) {
 			return;
 		}
@@ -82,10 +107,18 @@ public class JoinController extends Controller implements Initializable{
 		m.setEmail(txtFldMap.get(txtFldArr[5]).getText());
 		
 		DBService db = new DBServiceImpl();
-		db.insert(m);
-		comSrv.errorMsg("메시지", "완료", "회원가입이 완료되었습니다");
-		Stage s = (Stage)root.getScene().getWindow();
-		s.close();
+  		db.insert(m);
+  		comSrv.errorMsg("메시지", "완료", "회원가입이 완료되었습니다");
+  		
+  		//회원가입 성공 시 로그인폼에 아이디 입력
+		LoginController loginCtrl=new LoginController();
+		Parent loginForm=loginCtrl.getLoginParent();
+		TextField txtId=(TextField)loginForm.lookup("#txtId");
+		TextField txtPw=(TextField)loginForm.lookup("#txtPw");
+		txtId.setText(txtFldMap.get(txtFldArr[0]).getText());
+		txtPw.requestFocus();
+		
+		comSrv.closeWindow(e);
 	}
 	
 }
